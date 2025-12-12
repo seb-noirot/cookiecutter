@@ -22,6 +22,7 @@ Create projects from templates with ease, supporting:
 
 - **New Project Wizard Integration**: Create new projects directly from Cookiecutter templates using the IDE's project wizard
 - **Generate from Template Action**: Generate project structures in existing projects from Cookiecutter templates
+- **Auto-Install Cookiecutter**: One-click installation of Cookiecutter from within the IDE settings
 - **Multiple Template Sources**:
   - Local directory templates
   - GitHub templates (e.g., `gh:audreyfeldroy/cookiecutter-pypackage`)
@@ -32,9 +33,24 @@ Create projects from templates with ease, supporting:
 
 ## Installation
 
-### Prerequisites
+### Installing the Plugin
 
-You need to have Cookiecutter installed on your system:
+1. Open your JetBrains IDE (IntelliJ IDEA, PyCharm, WebStorm, etc.)
+2. Go to **Settings/Preferences** → **Plugins** → **Marketplace**
+3. Search for "Cookiecutter"
+4. Click **Install**
+5. Restart the IDE
+
+### Installing Cookiecutter
+
+The plugin can automatically install Cookiecutter for you:
+
+1. Go to **Settings/Preferences** → **Cookiecutter**
+2. Click the **"Install Cookiecutter"** button
+3. The plugin will use `pipx` (preferred) or `pip` to install Cookiecutter
+4. Once installed, the executable path will be automatically configured
+
+**Manual Installation** (if auto-install doesn't work):
 
 ```bash
 # Using pipx (recommended)
@@ -44,13 +60,7 @@ pipx install cookiecutter
 pip install --user cookiecutter
 ```
 
-### Installing the Plugin
-
-1. Open your JetBrains IDE (IntelliJ IDEA, PyCharm, WebStorm, etc.)
-2. Go to **Settings/Preferences** → **Plugins** → **Marketplace**
-3. Search for "Cookiecutter"
-4. Click **Install**
-5. Restart the IDE
+**Requirements**: You need to have Python and either `pipx` or `pip` installed on your system.
 
 ## Usage
 

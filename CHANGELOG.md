@@ -15,6 +15,10 @@
   - GitLab templates (using `gl:` prefix)
   - Git repository URLs
 - Settings page for configuring Cookiecutter executable path
+- Auto-install feature for Cookiecutter with one-click installation button
+- Automatic detection of installation method (pipx or pip)
+- Status indicator showing installed Cookiecutter version
+- Prompt to install Cookiecutter when not found
 - Recent templates list for quick access
 - Interactive template parameter input
 - Background task execution with progress indicators

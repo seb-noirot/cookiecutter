@@ -54,11 +54,22 @@ class GenerateFromTemplateAction : AnAction() {
 
         // Check if cookiecutter is available
         if (!runner.isCookiecutterAvailable()) {
-            Messages.showErrorDialog(
+            val result = Messages.showYesNoDialog(
                 project,
-                CookiecutterBundle.message("error.cookiecutter.not.available"),
-                CookiecutterBundle.message("error.title")
+                CookiecutterBundle.message("error.cookiecutter.not.available.offer.install"),
+                CookiecutterBundle.message("error.title"),
+                "Install Cookiecutter",
+                "Cancel",
+                Messages.getQuestionIcon()
             )
+            
+            if (result == Messages.YES) {
+                // Open settings to trigger installation
+                com.intellij.openapi.options.ShowSettingsUtil.getInstance().showSettingsDialog(
+                    project,
+                    CookiecutterBundle.message("settings.displayName")
+                )
+            }
             return
         }
 

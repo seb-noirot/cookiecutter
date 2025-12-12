@@ -25,6 +25,7 @@
     <extensions defaultExtensionNs="com.intellij">
         <applicationService serviceImplementation="com.github.sebnoinot.cookiecutter.settings.CookiecutterSettings"/>
         <applicationService serviceImplementation="com.github.sebnoinot.cookiecutter.services.CookiecutterRunner"/>
+        <applicationService serviceImplementation="com.github.sebnoinot.cookiecutter.services.CookiecutterInstaller"/>
         <applicationConfigurable 
             instance="com.github.sebnoinot.cookiecutter.settings.CookiecutterConfigurable"
             id="com.github.sebnoinot.cookiecutter.settings.CookiecutterConfigurable"
