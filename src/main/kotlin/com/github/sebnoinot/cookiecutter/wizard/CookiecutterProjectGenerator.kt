@@ -5,6 +5,7 @@ import com.github.sebnoinot.cookiecutter.services.CookiecutterRunner
 import com.github.sebnoinot.cookiecutter.settings.CookiecutterSettings
 import com.intellij.ide.util.projectWizard.AbstractNewProjectStep
 import com.intellij.ide.util.projectWizard.CustomStepProjectGenerator
+import com.intellij.ide.util.projectWizard.SettingsStep
 import com.intellij.openapi.diagnostic.Logger
 import com.intellij.openapi.module.Module
 import com.intellij.openapi.progress.ProgressIndicator
@@ -135,7 +136,7 @@ class CookiecutterProjectGeneratorPeer : ProjectGeneratorPeer<CookiecutterProjec
         return panel
     }
 
-    override fun buildUI(settingsStep: AbstractNewProjectStep.SettingsStep) {
+    override fun buildUI(settingsStep: SettingsStep) {
         settingsStep.addSettingsComponent(component)
     }
 

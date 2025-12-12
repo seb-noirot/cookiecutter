@@ -50,7 +50,7 @@ class CookiecutterRunner {
                 addParameter("$key=$value")
             }
             
-            withWorkingDirectory(outputDir)
+            withWorkingDirectory(outputDir.toPath())
         }
 
         logger.info("Running cookiecutter: ${commandLine.commandLineString}")
