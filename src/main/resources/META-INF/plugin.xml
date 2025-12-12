@@ -1,15 +1,42 @@
 <!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
 <idea-plugin>
-    <id>org.jetbrains.plugins.template</id>
-    <name>IntelliJ Platform Plugin Template</name>
-    <vendor>JetBrains</vendor>
+    <id>com.github.sebnoinot.cookiecutter</id>
+    <name>Cookiecutter</name>
+    <vendor email="seb.noirot@gmail.com" url="https://github.com/seb-noirot/cookiecutter">Seb Noirot</vendor>
+
+    <description><![CDATA[
+    Cookiecutter integration for JetBrains IDEs. Create projects from templates with ease.
+    
+    <p>Features:</p>
+    <ul>
+      <li>Create new projects from Cookiecutter templates</li>
+      <li>Support for local templates</li>
+      <li>Support for GitHub templates</li>
+      <li>Support for GitLab templates</li>
+      <li>Support for any Git repository template</li>
+      <li>Interactive template parameter input</li>
+    </ul>
+    ]]></description>
 
     <depends>com.intellij.modules.platform</depends>
 
-    <resource-bundle>messages.MyBundle</resource-bundle>
+    <resource-bundle>messages.CookiecutterBundle</resource-bundle>
 
     <extensions defaultExtensionNs="com.intellij">
-        <toolWindow factoryClass="org.jetbrains.plugins.template.toolWindow.MyToolWindowFactory" id="MyToolWindow"/>
-        <postStartupActivity implementation="org.jetbrains.plugins.template.startup.MyProjectActivity" />
+        <applicationService serviceImplementation="com.github.sebnoinot.cookiecutter.settings.CookiecutterSettings"/>
+        <applicationConfigurable 
+            instance="com.github.sebnoinot.cookiecutter.settings.CookiecutterConfigurable"
+            id="com.github.sebnoinot.cookiecutter.settings.CookiecutterConfigurable"
+            displayName="Cookiecutter"/>
+        <directoryProjectGenerator implementation="com.github.sebnoinot.cookiecutter.wizard.CookiecutterProjectGenerator"/>
     </extensions>
+
+    <actions>
+        <action id="Cookiecutter.GenerateFromTemplate"
+                class="com.github.sebnoinot.cookiecutter.actions.GenerateFromTemplateAction"
+                text="Generate from Cookiecutter Template"
+                description="Generate project structure from a Cookiecutter template">
+            <add-to-group group-id="NewGroup" anchor="first"/>
+        </action>
+    </actions>
 </idea-plugin>

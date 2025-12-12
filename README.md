@@ -1,4 +1,117 @@
-# IntelliJ Platform Plugin Template
+# Cookiecutter JetBrains Plugin
+
+[![Build](https://github.com/seb-noirot/cookiecutter/workflows/Build/badge.svg)][gh:build]
+
+> [!NOTE]
+> Cookiecutter integration for JetBrains IDEs
+
+<!-- Plugin description -->
+**Cookiecutter JetBrains Plugin** provides seamless integration with [Cookiecutter](https://github.com/cookiecutter/cookiecutter), a command-line utility that creates projects from templates.
+
+Create projects from templates with ease, supporting:
+- Local templates
+- GitHub repositories (using `gh:` prefix)
+- GitLab repositories (using `gl:` prefix)
+- Any Git repository URL
+- Interactive template parameter input
+
+[gh:build]: https://github.com/seb-noirot/cookiecutter/actions?query=workflow%3ABuild
+<!-- Plugin description end -->
+
+## Features
+
+- **New Project Wizard Integration**: Create new projects directly from Cookiecutter templates using the IDE's project wizard
+- **Generate from Template Action**: Generate project structures in existing projects from Cookiecutter templates
+- **Multiple Template Sources**:
+  - Local directory templates
+  - GitHub templates (e.g., `gh:audreyfeldroy/cookiecutter-pypackage`)
+  - GitLab templates (e.g., `gl:gitlab-user/template-repo`)
+  - Git repository URLs (e.g., `https://github.com/user/template.git`)
+- **Recent Templates**: Quick access to recently used templates
+- **Configurable Executable**: Configure the path to the cookiecutter executable in settings
+
+## Installation
+
+### Prerequisites
+
+You need to have Cookiecutter installed on your system:
+
+```bash
+# Using pipx (recommended)
+pipx install cookiecutter
+
+# Using pip
+pip install --user cookiecutter
+```
+
+### Installing the Plugin
+
+1. Open your JetBrains IDE (IntelliJ IDEA, PyCharm, WebStorm, etc.)
+2. Go to **Settings/Preferences** → **Plugins** → **Marketplace**
+3. Search for "Cookiecutter"
+4. Click **Install**
+5. Restart the IDE
+
+## Usage
+
+### Creating a New Project
+
+1. Go to **File** → **New Project**
+2. Select **Cookiecutter** from the project types
+3. Enter a template (e.g., `gh:audreyfeldroy/cookiecutter-pypackage`)
+4. Follow the prompts to configure your project
+
+### Generating in an Existing Project
+
+1. Right-click in the Project view or use **File** → **New**
+2. Select **Generate from Cookiecutter Template**
+3. Enter a template and output directory
+4. Follow the prompts to generate the structure
+
+### Configuring the Plugin
+
+Go to **Settings/Preferences** → **Cookiecutter** to configure:
+- Path to the cookiecutter executable (if not in PATH)
+
+## Template Examples
+
+- **Python Package**: `gh:audreyfeldroy/cookiecutter-pypackage`
+- **Django Project**: `gh:pydanny/cookiecutter-django`
+- **Local Template**: `/path/to/your/template`
+- **Git Repository**: `https://github.com/user/template.git`
+
+## Development
+
+### Building the Plugin
+
+```bash
+./gradlew buildPlugin
+```
+
+### Running the Plugin
+
+```bash
+./gradlew runIde
+```
+
+### Running Tests
+
+```bash
+./gradlew test
+```
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Acknowledgements
+
+- [Cookiecutter](https://github.com/cookiecutter/cookiecutter) - The command-line utility that this plugin integrates with
+- [IntelliJ Platform Plugin Template](https://github.com/JetBrains/intellij-platform-plugin-template) - The template used to bootstrap this plugin
 
 [![official JetBrains project](https://jb.gg/badges/official.svg)][jb:github]
 [![Twitter Follow](https://img.shields.io/badge/follow-%40JBPlatform-1DA1F2?logo=twitter)](https://x.com/JBPlatform)
