@@ -58,9 +58,6 @@ class CookiecutterProjectGenerator : DirectoryProjectGeneratorBase<CookiecutterP
                     val template = settings.template
                     val outputDir = File(baseDir.parent.path)
                     
-                    // Delete the empty directory created by the wizard
-                    baseDir.delete(this)
-                    
                     indicator.text = CookiecutterBundle.message("progress.running.cookiecutter")
                     indicator.text2 = template
                     
@@ -71,7 +68,10 @@ class CookiecutterProjectGenerator : DirectoryProjectGeneratorBase<CookiecutterP
                         progressIndicator = indicator
                     )
 
-                    if (output.exitCode != 0) {
+                    if (output.exitCode == 0) {
+                        // Delete the empty directory created by the wizard only on success
+                        baseDir.delete(this)
+                    } else {
                         logger.error("Cookiecutter failed: ${output.stderr}")
                     }
                     

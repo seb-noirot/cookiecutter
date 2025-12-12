@@ -83,7 +83,8 @@ class GenerateFromTemplateAction : AnAction() {
                     ApplicationManager.getApplication().invokeLater {
                         if (output.exitCode == 0) {
                             // Refresh file system
-                            LocalFileSystem.getInstance().refreshAndFindFileByPath(outputDir)?.refresh(false, true)
+                            val refreshedDir = LocalFileSystem.getInstance().refreshAndFindFileByPath(outputDir)
+                            refreshedDir?.refresh(false, true)
                             
                             Messages.showInfoMessage(
                                 project,

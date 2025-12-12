@@ -22,6 +22,8 @@ class CookiecutterSettings : PersistentStateComponent<CookiecutterSettings> {
     }
 
     companion object {
+        private const val MAX_RECENT_TEMPLATES = 10
+        
         fun getInstance(): CookiecutterSettings {
             return ApplicationManager.getApplication().getService(CookiecutterSettings::class.java)
         }
@@ -30,8 +32,8 @@ class CookiecutterSettings : PersistentStateComponent<CookiecutterSettings> {
     fun addRecentTemplate(template: String) {
         recentTemplates.remove(template)
         recentTemplates.add(0, template)
-        if (recentTemplates.size > 10) {
-            recentTemplates = recentTemplates.take(10).toMutableList()
+        if (recentTemplates.size > MAX_RECENT_TEMPLATES) {
+            recentTemplates = recentTemplates.take(MAX_RECENT_TEMPLATES).toMutableList()
         }
     }
 }

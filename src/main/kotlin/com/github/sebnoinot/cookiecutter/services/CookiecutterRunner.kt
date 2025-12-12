@@ -46,6 +46,7 @@ class CookiecutterRunner {
             }
             
             extraContext.forEach { (key, value) ->
+                addParameter("--extra-context")
                 addParameter("$key=$value")
             }
             
